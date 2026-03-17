@@ -1,3 +1,4 @@
+# Maven Build Artifacts
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -7,11 +8,25 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-# https://maven.apache.org/wrapper/#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-# Eclipse m2e generated files
-# Eclipse Core
+# IDEs (Eclipse, VS Code, IntelliJ)
 .project
-# JDT-specific (Eclipse Java Development Tools)
 .classpath
+.settings/
+.bin/
+.vscode/
+.idea/
+*.iml
+
+# Linux/Vim Swap and Temp Files
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+
+# Secrets
+.env
