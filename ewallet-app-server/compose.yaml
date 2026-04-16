@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: ewallet-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ewallet
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U user -d ewallet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  app:
+    build: .
+    container_name: ewallet-server
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy  # This is the magic line
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/ewallet
+      - DB_USER=user
+      - DB_PASSWORD=password
+
+volumes:
+  postgres_data:
