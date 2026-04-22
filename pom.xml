@@ -8,8 +8,8 @@
     <artifactId>ewallet-root</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging> <modules>
-        <module>ewallet-app-client</module>
         <module>ewallet-app-server</module>
+        <module>ewallet-app-client</module>
     </modules>
 
     <properties>
