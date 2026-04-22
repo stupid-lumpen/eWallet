@@ -13,7 +13,7 @@ RUN mvn clean package -DskipTests
 # Stage 2: Run
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/*.jar ewallet-server.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "ewallet-server.jar"]
